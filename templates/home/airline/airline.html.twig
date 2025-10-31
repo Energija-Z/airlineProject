@@ -1,0 +1,22 @@
+<h1>List of airlines!</h1>
+<a href="/airline/create">Create an airline</a>
+<a href="/">Return to homepage</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Airports serviced</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in airlines %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.country}}</td>
+                <td>{{i.airports.name}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

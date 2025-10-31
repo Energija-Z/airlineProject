@@ -1,0 +1,10 @@
+<h1>Add an airport!</h1>
+<a href="/airport">Return to airport page</a>
+
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.code) }}
+    {{ form_row(form.country) }}
+    {{ form_row(form.location) }}
+    {{ form_row(form.save) }}
+{{ form_end(form, {'render_rest': false}) }}

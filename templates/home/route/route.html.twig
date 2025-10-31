@@ -1,0 +1,23 @@
+<h1>List of routes!</h1>
+<a href="/">Return to homepage</a>
+<a href="/route/create">Create a route</a>
+<a href="/">Return to homepage</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Airline</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in routes %}
+            <tr>
+                <td>{{i.originAirport.name}}</td>
+                <td>{{i.destinationAirport.name}}</td>
+                <td>{{i.airline.name}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

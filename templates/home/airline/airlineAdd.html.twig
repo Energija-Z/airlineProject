@@ -1,0 +1,14 @@
+<h1>Add an airline!</h1>
+
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.country) }}
+    {{ form_row(form.airports) }}
+{{ form_end(form) }}
+
+<h2>Airports supported:</h2>
+<ul>
+{% for i in airports %}
+    <li>{{i.name}}</li>
+{% endfor %}
+</ul>
