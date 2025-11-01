@@ -27,6 +27,10 @@ class SharedDataService
         $session->set($key, $sessionArray);
     }
 
+    public function setStorageAll(string $key, Array $value){
+        $this->requestStack->getSession()->set($key, $value);
+    }
+
     public function getStorage(string $key){
         return $this->requestStack->getSession()->get($key);
     }

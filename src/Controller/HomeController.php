@@ -62,17 +62,19 @@ class HomeController extends AbstractController {
         ]);
     }
 
-    #[Route("/airport/delete")]
-    public function airportDeleteRender(Request $request, SharedDataService $sds): Response
+    #[Route("/airport/delete/{name}")]
+    public function airportDeleteRender(string $name, Request $request, SharedDataService $sds): Response
     {
-        $form = $this->createForm(AirportForm::class);
-        $form->handleRequest($request);
+        $airportArray = $sds->getStorage("airportArray");
+        for($i = 0; $i < sizeof($airportArray); $i++)
+            if($airportArray[$i]->getName() === $name){
+                unset($airportArray[$i]);
+                $sds->setStorageAll("airportArray", $airportArray);
+                break;
+            }
 
-        if($form->isSubmitted() && $form->isValid()) {
-        }
         return $this->render('home/airport/airportDelete.html.twig', [
-            "airports" => $sds->getStorage("airportArray"),
-            "form" => $form
+            "aiport" => $name
         ]);
     }
 
@@ -120,6 +122,18 @@ class HomeController extends AbstractController {
     #[Route("/airline/delete")]
     public function airlineDeleteRender(SharedDataService $sds): Response
     {
+
+        $airlineArray = $sds->getStorage("airlineArray");
+        for($i = 0; $i < sizeof($airlineArray); $i++)
+            if($airlineArray[$i]->getName() === $name){
+                unset($airlineArray[$i]);
+                $sds->setStorageAll("airlineArray", $airlineArray);
+                break;
+            }
+
+        return $this->render('home/airline/airlineDelete.html.twig', [
+            "airline" => $name
+        ]);
     }
 
     #[Route("/airline/update")]

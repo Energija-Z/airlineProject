@@ -1,5 +1,6 @@
 <h1>List of airports:</h1>
 <a href="/airport/create">Create an airport</a>
+<a href="/airport/update">Update an airport</a>
 <a href="/">Return to homepage</a>
 
 <table>
@@ -9,6 +10,7 @@
             <th>Code</th>
             <th>Country</th>
             <th>Location</th>
+            <th>Delete option</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +20,7 @@
                 <td>{{i.code}}</td>
                 <td>{{i.country}}</td>
                 <td>{{i.location}}</td>
+                <td><a href="/airport/delete/{{i.name}}">Delete</a></td>
             </tr>
         {% endfor %}
     </tbody>
